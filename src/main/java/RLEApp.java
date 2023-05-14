@@ -11,17 +11,17 @@ public class RLEApp {
     }
 
     public static @NotNull String compress(String inputString) {
-        String outputString = "";
-        Integer count;
+        StringBuilder outputString = new StringBuilder();
+        int count;
         for (int i = 0; i < inputString.length(); i++) {
             count = 1;
             while (i < inputString.length() - 1 && inputString.charAt(i) == inputString.charAt(i + 1)) {
                 count++;
                 i++;
             }
-            outputString = outputString + inputString.charAt(i) + count;
+            outputString.append(inputString.charAt(i)).append(count);
         }
-        return outputString;
+        return outputString.toString();
     }
 
     public static @NotNull String compressStream(String text) {
